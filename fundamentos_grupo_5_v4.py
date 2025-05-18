@@ -49,7 +49,7 @@ def clasificar_atencion(edad, presion, frecuencia, saturacion, nivel_conciencia)
 
 # Bucle principal
 while True:
-    print("\n====== Registrar datos del Paciente (Versión 4) ======")
+    print("\n====== Registrar datos del Paciente ======")
 
     # Datos personales
     while True:
