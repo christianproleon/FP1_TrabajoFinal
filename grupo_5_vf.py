@@ -215,3 +215,39 @@ while True:
             print("❗Error: Por favor, ingrese 'S' para Sí o 'N' para No")
     if continuar == 'N':
         break
+
+#=====================================
+# Reporte final de todos los pacientes
+#=====================================
+# Encabezado
+print(f"\n★★★★★★★★★★★★★★★★★★★★ Reporte final de los {len(lista_nombre)} pacientes ★★★★★★★★★★★★★★★★★★★★")
+print(f"{'':<3} {'':<25} {'':<18} {'':<10} {'':<5} {'':<5} {'':<6} {'Presión':<10} {'Frecuencia':<11} {'Saturación':<11} {'Nivel de':<11} {'':<5} {'Clasificar':<11} {'Nivel de'}")
+print(f"{'N°':<3} {'Nombre y apellido':<25} {'Fecha de atención':<18} {'Sexo':<10} {'Edad':<5} {'Peso':<5} {'Talla':<6} {'sistólica':<10} {'cardiaca':<11} {'de oxígeno':<11} {'conciencia':<11} {'IMC':<5} {'IMC':<11} {'atención'}")
+print("-" * 155)
+
+# Filas de datos
+for i in range(len(lista_nombre)):
+    print(f"{i + 1:<3} {lista_nombre[i]:<25} {lista_fecha[i]:<18} {lista_sexo[i]:<10} {lista_edad[i]:<5} {lista_peso[i]:<5.1f} {lista_talla[i]:<6.1f} {lista_presion[i]:<10.1f} {lista_frecuencia[i]:<11} {lista_saturacion[i]:<11} {lista_nivel[i]:<11} {lista_imc[i]:<5.1f} {lista_clasificacion[i]:<11} {lista_atencion[i]}")
+print("-" * 155)
+
+# Crear tabla de datos
+datos = pandas.DataFrame({
+    "nombres": lista_nombre,
+    "fecha_atencion": lista_fecha,
+    "sexo": lista_sexo,
+    "edad": lista_edad,
+    "peso": lista_peso,
+    "talla": lista_talla,
+    "presion_sistolica": lista_presion,
+    "frecuencia_cardiaca": lista_frecuencia,
+    "saturacion_oxígeno": lista_saturacion,
+    "nivel_conciencia": lista_nivel,
+    "imc": lista_imc,
+    "clasificacion_imc": lista_clasificacion,
+    "prioridad_atencion": lista_atencion
+})
+
+# Guardar reporte final en Excel
+archivo = "reporte_final_pacientes_" + datetime.now().strftime('%d-%m-%Y') + ".xlsx"
+datos.to_excel(archivo, index=False)
+print(f"\nReporte final guardado en la carpeta: \n{os.getcwd() + "\\" + archivo}")
