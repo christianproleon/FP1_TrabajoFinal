@@ -97,3 +97,15 @@ while True:
                 print("❗Error: Ingrese una edad válida")
         except ValueError:
             print("❗Error: Ingrese un número entero")
+
+    # Registrar y validar el peso
+    while True:
+        try:
+            peso = float(input("Peso (kg): "))
+            if 0 < peso <= 120:
+                break
+            else:
+                print("❗Error: Ingrese un peso válido")
+        except ValueError:
+            print("❗Error: Ingrese un número real")
+
