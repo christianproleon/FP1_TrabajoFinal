@@ -242,12 +242,13 @@ for i in range(0,len(lista_nombre),1):
         lista_clasificacion[i],
         lista_atencion[i]
     ])
-tabla_datos = pandas.DataFrame(tabla_datos)
 
-# Imprimir tabla de datos
 columnas = ["N°", "Nombre y apellido", "Fecha de atención", "Sexo", "Edad\n(años)", "Peso\n(kg)", "Talla\n(cm)", "Presión\nsistólica", "Frecuencia\ncardiaca (lpm)",
             "Saturación de\noxígeno (%)", "Nivel de\nconciencia", "IMC", "Clasificación\nIMC", "Nivel de\natención"]
-print(tabulate(tabla_datos, headers=columnas, tablefmt="fancy_grid", showindex=False))
+tabla_datos = pandas.DataFrame(tabla_datos, columns=columnas)
+
+# Imprimir tabla de datos
+print(tabulate(tabla_datos, headers="keys", tablefmt="fancy_grid", showindex=False))
 
 # Guardar reporte final en Excel
 archivo = "reporte_final_pacientes_" + datetime.now().strftime('%d-%m-%Y') + ".xlsx"
