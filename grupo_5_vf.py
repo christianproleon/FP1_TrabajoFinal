@@ -109,3 +109,35 @@ while True:
         except ValueError:
             print("❗Error: Ingrese un número real")
 
+    # Registrar y validar la talla
+    while True:
+        try:
+            talla_cm = float(input("Talla (centímetros): "))
+            if 0 < talla_cm <= 210:
+                break
+            else:
+                print("❗Error: Ingrese una talla válida")
+        except ValueError:
+            print("❗Error: Ingrese un número real")
+
+    # Registrar y validar la presión sistólica
+    while True:
+        try:
+            presion = float(input("Presión sistólica (mmHg): "))
+            if 0 < presion <= 250:
+                break
+            else:
+                print("❗Error: Ingrese presión sistólica válida")
+        except ValueError:
+                print("❗Error: Ingrese un número real")
+
+    # Registrar y validar la frecuencia cardiaca
+    while True:
+        try:
+            frecuencia = int(input("Frecuencia cardiaca (lpm): "))
+            if 0 < frecuencia <= 250:
+                break
+            else:
+                print("❗Error: Ingrese frecuencia cardiaca válida")
+        except ValueError:
+                print("❗Error: Ingrese un número entero")
