@@ -1,3 +1,10 @@
+#=====================================================================
+# GESTIÓN Y AUTOMATIZACIÓN DE REGISTROS DE PACIENTES EN POSTAS MÉDICAS
+#=====================================================================
+# - Renato Yassir Villafuerte Falcón
+# - Christian Cordova Proleón
+# - Alvaro Sebastian Nieva Salinas
+
 # Importar librerías
 import pandas
 import os
