@@ -141,3 +141,77 @@ while True:
                 print("❗Error: Ingrese frecuencia cardiaca válida")
         except ValueError:
                 print("❗Error: Ingrese un número entero")
+
+    # Registrar y validar la saturación de oxígeno
+    while True:
+        try:
+            saturacion = int(input("Saturación de oxígeno (%): "))
+            if 50 < saturacion <= 100:
+                break
+            else:
+                print("❗Error: Ingrese saturación de oxígeno válida")
+        except ValueError:
+                print("❗Error: Ingrese un número entero")
+
+    # Registrar y validar el nivel de conciencia
+    while True:
+        nivel_conciencia = input("Nivel de conciencia (A/V/D/I): ").strip().upper()
+        if nivel_conciencia in ["A","V","D","I"]:
+            if nivel_conciencia == "A":
+                nivel_conciencia = "Alerta"
+            elif nivel_conciencia == "V":
+                nivel_conciencia = "Verbal"
+            elif nivel_conciencia == "D":
+                nivel_conciencia = "Dolor"
+            else:
+                nivel_conciencia = "Inconsciente"
+            break
+        else:
+            print("❗Error: Ingrese solo 'A','V','D' o 'I'")
+
+    # Calcular y clasificar el IMC
+    imc = calcular_imc(peso, talla_cm)
+    clasificacion = clasificar_imc(imc)
+
+    # Clasificar la atención del paciente
+    atencion = clasificar_atencion(edad, presion, frecuencia, saturacion, nivel_conciencia)
+
+    # Mostrar reporte inmediato del paciente
+    print(f"\n👨‍⚕️📝 Reporte del paciente '{nombre}'")
+    print(f"Fecha de atención: {fecha}")
+    print(f"Sexo: {sexo}")
+    print(f"Edad: {edad} años")
+    print(f"Peso: {peso} kg")
+    print(f"Talla: {talla_cm} cm")
+    print(f"Presión sistólica: {presion} mmHg")
+    print(f"Frecuencia cardiaca: {frecuencia} lpm")
+    print(f"Saturación de oxígeno: {saturacion} %")
+    print(f"Nivel de conciencia: {nivel_conciencia}")
+    print(f"IMC: {imc} ({clasificacion})")
+    print(f"Prioridad de atención: {atencion}")
+    print("==========================================")
+
+    # Guardar los datos en listas
+    lista_nombre.append(nombre)
+    lista_fecha.append(fecha)
+    lista_sexo.append(sexo)
+    lista_edad.append(edad)
+    lista_peso.append(peso)
+    lista_talla.append(talla_cm)
+    lista_presion.append(presion)
+    lista_frecuencia.append(frecuencia)
+    lista_saturacion.append(saturacion)
+    lista_nivel.append(nivel_conciencia)
+    lista_imc.append(imc)
+    lista_clasificacion.append(clasificacion)
+    lista_atencion.append(atencion)
+
+    # Preguntar si se desea continuar registrando
+    while True:
+        continuar = input("\n¿Desea registrar otro paciente? (S/N): ").strip().upper()
+        if continuar in ('S','N'):
+            break
+        else:
+            print("❗Error: Por favor, ingrese 'S' para Sí o 'N' para No")
+    if continuar == 'N':
+        break
