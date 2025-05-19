@@ -74,3 +74,26 @@ while True:
 
     # Registrar fecha de atención
     fecha = datetime.now().strftime('%d-%m-%Y %H:%M')
+
+    # Registrar y validar el sexo
+    while True:
+        sexo = input("Sexo (M/F): ").strip().upper()
+        if sexo in ["M","F"]:
+            if sexo == "M":
+                sexo = "Masculino"
+            else:
+                sexo = "Femenino"
+            break
+        else:
+            print("❗Error: Ingrese 'M' (Masculino) o 'F' (Femenino)")
+
+    # Registrar y validar la edad
+    while True:
+        try:
+            edad = int(input("Edad (años): "))
+            if 0 < edad <= 100:
+                break
+            else:
+                print("❗Error: Ingrese una edad válida")
+        except ValueError:
+            print("❗Error: Ingrese un número entero")
