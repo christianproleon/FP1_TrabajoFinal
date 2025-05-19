@@ -1,5 +1,5 @@
 from datetime import datetime
-from tabulate import tabulate  # Asegúrate de tener instalada esta librería
+from tabulate import tabulate
 
 # Listas para almacenar los datos
 lista_nombre = []
