@@ -58,3 +58,19 @@ def clasificar_atencion(edad, presion, frecuencia, saturacion, nivel_conciencia)
             return "Urgente"
         else:
             return "Normal"
+
+#========================================
+# Bucle para registrar datos del paciente
+#========================================
+while True:
+    print("\n====== Registrar datos del Paciente ======")
+
+    # Registrar nombres del paciente
+    while True:
+        nombre = input("Nombre y apellido: ").strip().upper()
+        if nombre != "":
+            break
+        print("❗Error: Ingrese nombres del paciente")
+
+    # Registrar fecha de atención
+    fecha = datetime.now().strftime('%d-%m-%Y %H:%M')
