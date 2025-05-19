@@ -40,3 +40,21 @@ def clasificar_imc(imc):
         return "Sobrepeso"
     else:
         return "Obesidad"
+
+# Función para clasificar la atención del paciente
+def clasificar_atencion(edad, presion, frecuencia, saturacion, nivel_conciencia):
+    if edad <= 75:
+        if (presion < 90 or presion > 180 or
+            frecuencia < 60 or frecuencia > 120 or
+            saturacion < 92 or
+            nivel_conciencia != "Alerta"):
+            return "Urgente"
+        else:
+            return "Normal"
+    else:
+        if (presion < 100 or presion > 160 or
+            frecuencia < 55 or frecuencia > 110 or
+            saturacion < 94):
+            return "Urgente"
+        else:
+            return "Normal"
